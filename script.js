@@ -650,8 +650,7 @@ function createMenuCard(item, index) {
     
     card.innerHTML = `
         <div class="menu-item-image">
-            <!-- ADD PRODUCT IMAGE: images/products/${item.id}.jpg -->
-            📷 Image Placeholder
+            <img src="images/products/${item.id}.jpg" alt="${name}" onerror="this.src='images/products/placeholder.jpg'; this.onerror=null;">
         </div>
         <div class="menu-item-content">
             <div class="menu-item-header">
@@ -703,6 +702,10 @@ function openProductModal(product) {
     
     const modal = document.getElementById('productModal');
     const name = currentLang === 'en' ? product.nameEn : product.nameAr;
+    
+    // Update modal product image
+    const modalImage = modal.querySelector('.modal-product-image');
+    modalImage.innerHTML = `<img src="images/products/${product.id}.jpg" alt="${name}" onerror="this.src='images/products/placeholder.jpg'; this.onerror=null;">`;
     
     document.getElementById('modalTitle').textContent = name;
     document.getElementById('modalPrice').textContent = `${product.price} AED`;
@@ -1071,8 +1074,7 @@ function createCartItemHTML(item) {
     return `
         <div class="cart-item">
             <div class="cart-item-image">
-                <!-- Image: products/${item.product.id}.jpg -->
-                📷
+                <img src="images/products/${item.product.id}.jpg" alt="${name}" onerror="this.src='images/products/placeholder.jpg'; this.onerror=null;">
             </div>
             <div class="cart-item-details">
                 <div class="cart-item-header">
