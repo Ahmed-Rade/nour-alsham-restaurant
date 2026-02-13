@@ -1,7 +1,7 @@
 // ===================================
 // STATE MANAGEMENT
 // ===================================
-let currentLang = 'en';
+let currentLang = 'ar';
 let cart = [];
 let currentProduct = null;
 let modalQuantity = 1;
